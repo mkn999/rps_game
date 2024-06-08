@@ -16,9 +16,6 @@ usermove = event.target.value;
 const randomNumber = Math.floor(Math.random() * 3);
 computerMove = array[randomNumber];
 
-console.log(usermove);
-console.log(computerMove);
-
 if(usermove == 'rock') {
 if(computerMove == 'paper' ) {
     scorecard.innerText = "Computer Wins";
@@ -73,6 +70,5 @@ else {
 
 }
 }
-console.log(userscore);
 });
 });
