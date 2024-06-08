@@ -15,8 +15,9 @@ scoreboard3 = document.getElementById('tie');
 usermove = event.target.value;
 const randomNumber = Math.floor(Math.random() * 3);
 computerMove = array[randomNumber];
-
-if(usermove == 'rock') {
+console.log(usermove);
+console.log(computerMove);
+/*if(usermove == 'rock') {
 if(computerMove == 'paper' ) {
     scorecard.innerText = "Computer Wins";
     userscore.loss +=1;
@@ -69,6 +70,67 @@ else {
     scoreboard3.innerHTML = userscore.tie;
 
 }
+} */
+if(usermove == 'rock'){  
+    if(computerMove == 'paper'){
+        console.log('computer won');  
+        scorecard.innerText = "Computer Won";
+        userscore.loss +=1;
+        scoreboard2.innerHTML = userscore.loss;
+    }
+    else if(computerMove == 'scissor'){
+    console.log('user won');  
+    scorecard.innerText = "User won";
+    userscore.wins +=1;
+    scoreboard1.innerHTML = userscore.wins;
+    }
+    else{
+        console.log('tie');
+        scorecard.innerText = "Tie";
+        userscore.tie +=1;
+        scoreboard3.innerHTML = userscore.tie;
+    }
+}
+else if(usermove == 'paper'){
+    if(computerMove == 'scissor'){
+        console.log('computer won');
+        scorecard.innerText = "Computer Won";
+        userscore.loss +=1;
+        scoreboard2.innerHTML = userscore.loss;  
+    }
+    else if(computerMove == 'rock'){
+    console.log('user won');  
+    scorecard.innerText = "User won";
+    userscore.wins +=1;
+    scoreboard1.innerHTML = userscore.wins;
+    }
+    else{
+        console.log('tie');
+        scorecard.innerText = "Tie";
+        userscore.tie +=1;
+        scoreboard3.innerHTML = userscore.tie;
+    }
+
+}
+else{
+    if(computerMove == 'rock'){
+        console.log('computer won');  
+        scorecard.innerText = "Computer Won";
+        userscore.loss +=1;
+        scoreboard2.innerHTML = userscore.loss;
+    }
+    else if(computerMove == 'paper'){
+    console.log('user won');  
+    scorecard.innerText = "User won";
+    userscore.wins +=1;
+    scoreboard1.innerHTML = userscore.wins;
+    }
+    else{
+        console.log('tie');
+        scorecard.innerText = "Tie";
+        userscore.tie +=1;
+        scoreboard3.innerHTML = userscore.tie;
+    }
 }
 });
 });
