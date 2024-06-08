@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>ROCK-PAPER-SCISSOR</title>
+    <style>
+        .button_container{
+            margin: 40px 0px 40px 0px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap:20px;
+        }
+        .buttons{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 20px;
+            border: none;   
+        }
+    </style>
 </head>
 <body>
-    <button onclick="" value="rock" id="rock">Rock</button>
-    <button onclick="" value="paper" id="paper" >Paper</button>
-    <button onclick=""  value="scissor" id="scissor">Scisscor</button>
-
+    <h1 class="bg-primary text-center text-capitalize">rock-paper-scissor</h1>
+    <h2  id="scorecard" class="text-center text-uppercase">Click button to play</h2>
+    
+    <div class="button_container">
+    <button onclick="" value="rock" id="rock" class="btn-primary buttons">Rock</button>
+    <button onclick="" value="paper" id="paper" class="btn-info buttons">Paper</button>
+    <button onclick=""  value="scissor" id="scissor" class="btn-primary buttons">Scissor</button>
+    </div>
+    <table class="table">
+        <tr>
+            <th class="success">Wins</th>
+            <th class="danger">Loss</th>
+            <th class="info">Tie</th>
+          </tr>
+          <tr>
+            <td  id="wins">0</td>
+            <td id="loss">0</td>
+            <td id="tie">0</td>
+          </tr>
+    </table>
     <script>    
         const array = ["rock","paper","scissor"];
         const userscore = {
@@ -17,8 +52,14 @@
             loss :0,
             tie:0,
         }
+        const buttons = document.querySelectorAll('button');
+        const scorecard = document.getElementById('scorecard');
+        buttons.forEach(button => {
+        button.addEventListener("click",function(event){
+        scoreboard1 = document.getElementById('wins');
+        scoreboard2 = document.getElementById('loss');
+        scoreboard3 = document.getElementById('tie');
 
-        document.body.addEventListener("click",function(event){
         usermove = event.target.value;
         const randomNumber = Math.floor(Math.random() * 3);
         computerMove = array[randomNumber];
@@ -28,53 +69,61 @@
         
        if(usermove == 'rock') {
         if(computerMove == 'paper' ) {
-            alert("computer wins");
+            scorecard.innerText = "Computer Wins";
             userscore.loss +=1;
+            scoreboard1.innerHTML = userscore.loss;
         }
         else if (computerMove == 'scissor') {
-            alert("user wins");
+            scorecard.innerText = "User Wins";
             userscore.wins +=1;
-
+            scoreboard2.innerHTML = userscore.wins;
         }
         else {
-            alert("Its a Tie");
+            scorecard.innerText = "It's a Tie";
             userscore.tie +=1;
-
+            scoreboard3.innerHTML = userscore.tie;
         }
        }
        else if (usermove == 'paper') {
         if(computerMove == 'scissor' ) {
-            alert("computer wins");
+            scorecard.innerText = "Computer Wins";
             userscore.loss +=1;
+            scoreboard1.innerHTML = userscore.loss;
         }
         else if (computerMove == 'rock') {
-            alert("user wins");
+            scorecard.innerText = "User Wins";
             userscore.wins +=1;
+            scoreboard2.innerHTML = userscore.wins;
         }
         else {
-            alert("Its a Tie");
+            scorecard.innerText = "It's a Tie";
             userscore.tie +=1;
+            scoreboard3.innerHTML = userscore.tie;
 
         }
        }
        else{
         if(computerMove == 'rock' ) {
-            alert("computer wins");
+            scorecard.innerText = "Computer Wins";
             userscore.loss +=1;
+            scoreboard1.innerHTML = userscore.loss;
         }
         else if (computerMove == 'paper') {
-            alert("user wins");
+            scorecard.innerText = "User Wins";
             userscore.wins +=1;
+            scoreboard2.innerHTML = userscore.wins;
+        
         }
         else {
-            alert("Its a Tie");
+            scorecard.innerText = "It's a Tie";
             userscore.tie +=1;
+            scoreboard3.innerHTML = userscore.tie;
 
         }
        }
-
+       console.log(userscore);
         });
-
+    });
         
     </script>
 </body>
