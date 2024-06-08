@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="" value="rock" id="rock">Rock</button>
+    <button onclick="" value="paper" id="paper" >Paper</button>
+    <button onclick=""  value="scissor" id="scissor">Scisscor</button>
+
+    <script>    
+        const array = ["rock","paper","scissor"];
+        document.body.addEventListener("click",function(event){
+        usermove = event.target.value;
+        const randomNumber = Math.floor(Math.random() * 3);
+        computerMove = array[randomNumber];
+        
+        console.log(usermove);
+        console.log(computerMove);
+        
+       if(usermove == 'rock') {
+        if(computerMove == 'paper' ) {
+            alert("computer wins");
+        }
+        else if (computerMove == 'scissor') {
+            alert("user wins");
+        }
+        else {
+            alert("Its a Tie");
+        }
+       }
+       else if (usermove == 'paper') {
+        if(computerMove == 'scissor' ) {
+            alert("computer wins");
+        }
+        else if (computerMove == 'rock') {
+            alert("user wins");
+        }
+        else {
+            alert("Its a Tie");
+        }
+       }
+       else{
+        if(computerMove == 'rock' ) {
+            alert("computer wins");
+        }
+        else if (computerMove == 'paper') {
+            alert("user wins");
+        }
+        else {
+            alert("Its a Tie");
+        }
+       }
+
+        });
+
+        
+    </script>
+</body>
+</html>
