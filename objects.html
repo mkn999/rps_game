@@ -22,6 +22,12 @@
             border-radius: 20px;
             border: none;   
         }
+        .score{
+            font-size: 40px;
+        }
+        .title{
+            font-size: 30px;
+        }
     </style>
 </head>
 <body>
@@ -33,98 +39,18 @@
     <button onclick="" value="paper" id="paper" class="btn-info buttons">Paper</button>
     <button onclick=""  value="scissor" id="scissor" class="btn-primary buttons">Scissor</button>
     </div>
-    <table class="table">
+    <table class="table table-dark">
         <tr>
-            <th class="success">Wins</th>
-            <th class="danger">Loss</th>
-            <th class="info">Tie</th>
+            <th class="success text-center title">Wins</th>
+            <th class="danger text-center title">Loss</th>
+            <th class="info text-center title">Tie</th>
           </tr>
           <tr>
-            <td  id="wins">0</td>
-            <td id="loss">0</td>
-            <td id="tie">0</td>
+            <td  id="wins"class="text-center score">0</td>
+            <td id="loss"class="text-center score">0</td>
+            <td id="tie"class="text-center score">0</td>
           </tr>
     </table>
-    <script>    
-        const array = ["rock","paper","scissor"];
-        const userscore = {
-            wins :0,
-            loss :0,
-            tie:0,
-        }
-        const buttons = document.querySelectorAll('button');
-        const scorecard = document.getElementById('scorecard');
-        buttons.forEach(button => {
-        button.addEventListener("click",function(event){
-        scoreboard1 = document.getElementById('wins');
-        scoreboard2 = document.getElementById('loss');
-        scoreboard3 = document.getElementById('tie');
-
-        usermove = event.target.value;
-        const randomNumber = Math.floor(Math.random() * 3);
-        computerMove = array[randomNumber];
-        
-        console.log(usermove);
-        console.log(computerMove);
-        
-       if(usermove == 'rock') {
-        if(computerMove == 'paper' ) {
-            scorecard.innerText = "Computer Wins";
-            userscore.loss +=1;
-            scoreboard1.innerHTML = userscore.loss;
-        }
-        else if (computerMove == 'scissor') {
-            scorecard.innerText = "User Wins";
-            userscore.wins +=1;
-            scoreboard2.innerHTML = userscore.wins;
-        }
-        else {
-            scorecard.innerText = "It's a Tie";
-            userscore.tie +=1;
-            scoreboard3.innerHTML = userscore.tie;
-        }
-       }
-       else if (usermove == 'paper') {
-        if(computerMove == 'scissor' ) {
-            scorecard.innerText = "Computer Wins";
-            userscore.loss +=1;
-            scoreboard1.innerHTML = userscore.loss;
-        }
-        else if (computerMove == 'rock') {
-            scorecard.innerText = "User Wins";
-            userscore.wins +=1;
-            scoreboard2.innerHTML = userscore.wins;
-        }
-        else {
-            scorecard.innerText = "It's a Tie";
-            userscore.tie +=1;
-            scoreboard3.innerHTML = userscore.tie;
-
-        }
-       }
-       else{
-        if(computerMove == 'rock' ) {
-            scorecard.innerText = "Computer Wins";
-            userscore.loss +=1;
-            scoreboard1.innerHTML = userscore.loss;
-        }
-        else if (computerMove == 'paper') {
-            scorecard.innerText = "User Wins";
-            userscore.wins +=1;
-            scoreboard2.innerHTML = userscore.wins;
-        
-        }
-        else {
-            scorecard.innerText = "It's a Tie";
-            userscore.tie +=1;
-            scoreboard3.innerHTML = userscore.tie;
-
-        }
-       }
-       console.log(userscore);
-        });
-    });
-        
-    </script>
+    <script src="rsp.js"></script>
 </body>
 </html>
